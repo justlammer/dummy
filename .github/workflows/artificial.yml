@@ -1,0 +1,23 @@
+name: Populate
+
+on:
+  schedule:
+    # - cron: '*/5  * * * *'
+    - cron: '0 9-17 * * *'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: justlammer/udumbs@main
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_NAME: ${{ secrets.USERNAME }}
+          GITHUB_EMAIL: ${{ secrets.EMAIL }}
+          MODE: realistic
+          MIN_COMMITS: 1
+          MAX_COMMITS: 5
+          # NO_COMMITS: '[sunday, monday]'
