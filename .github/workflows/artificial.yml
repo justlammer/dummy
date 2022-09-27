@@ -3,8 +3,9 @@ name: Populate
 on:
   schedule:
     # - cron: '*/5  * * * *'
-    - cron: '0 9-17 * * *'
-  workflow_dispatch:
+    # - cron: '0 9-17 * * *'
+    - cron: '*/15 * * * *'
+  # workflow_dispatch:
 
 jobs:
   build:
